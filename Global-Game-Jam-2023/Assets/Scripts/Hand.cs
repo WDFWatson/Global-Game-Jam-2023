@@ -4,10 +4,14 @@ using UnityEngine;
 
 public class Hand : MonoBehaviour
 {
+    public Spell playerSpell;
+    
     public float handTopHeight = -2f;
     [SerializeField] private float cardSlotWidth;
 
     public List<Card> cards;
+
+    public List<Card> playedCards;
     // Start is called before the first frame update
     void Awake()
     {
@@ -24,6 +28,17 @@ public class Hand : MonoBehaviour
             cards[i].originalPosition = new Vector2(horizontalPosition, -5);
             cards[i].transform.position = cards[i].originalPosition;
         }
+    }
+
+    public void ReturnPlayedCards()
+    {
+        foreach (Card card  in playedCards)
+        {
+            card.gameObject.SetActive(true);
+        }
+        cards.AddRange(playedCards);
+        playedCards.Clear();
+        UpdateHandOrder();
     }
     
 }

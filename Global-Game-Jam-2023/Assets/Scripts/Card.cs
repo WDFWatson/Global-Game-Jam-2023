@@ -92,8 +92,11 @@ public class Card : MonoBehaviour
 
     public void Play()
     {
+        transform.localScale /= focusScale;
         hand.cards.Remove(this);
-        Destroy(gameObject);
+        hand.playerSpell.AddCard(root);
+        hand.playedCards.Add(this);
+        gameObject.SetActive(false);
         hand.UpdateHandOrder();
     }
 

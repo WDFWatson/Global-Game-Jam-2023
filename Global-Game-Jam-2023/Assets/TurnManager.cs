@@ -26,11 +26,11 @@ public class TurnManager : MonoBehaviour
         Outcome outcome = new Outcome();
         foreach (EffectData effectData in spell.rootEffect)
         {
-            effectData.Effect(outcome);
+            effectData.effect.DoEffect(outcome, effectData.effectValue);
         }
         foreach (EffectData effectData in spell.affixEffects)
         {
-            effectData.Effect(outcome);
+            effectData.effect.DoEffect(outcome, effectData.effectValue);
         }
         return outcome;
     }
