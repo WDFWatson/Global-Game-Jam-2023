@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class Hand : MonoBehaviour
 {
+    public float handTopHeight = -2f;
     // Start is called before the first frame update
     void Start()
     {
@@ -15,4 +16,5 @@ public class Hand : MonoBehaviour
     {
         
     }
+    
 }

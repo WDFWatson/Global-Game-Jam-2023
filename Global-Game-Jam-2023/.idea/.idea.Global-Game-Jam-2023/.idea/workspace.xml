@@ -3,8 +3,8 @@
   <component name="ChangeListManager">
     <list default="true" id="eb1d4cb2-ea66-47b7-a07e-8b9e824f7e5e" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/.idea.Global-Game-Jam-2023/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.Global-Game-Jam-2023/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Card.cs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Card.cs.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Card.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Card.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Hand.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Hand.cs" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -82,7 +82,7 @@
       <option name="presentableId" value="Default" />
       <updated>1675465972385</updated>
       <workItem from="1675465974852" duration="957000" />
-      <workItem from="1675476169627" duration="872000" />
+      <workItem from="1675476169627" duration="2044000" />
     </task>
     <servers />
   </component>
