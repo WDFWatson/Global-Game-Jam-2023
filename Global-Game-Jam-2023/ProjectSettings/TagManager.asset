@@ -41,3 +41,9 @@ TagManager:
   - name: Default
     uniqueID: 0
     locked: 0
+  - name: Hand
+    uniqueID: 1948258921
+    locked: 0
+  - name: Held
+    uniqueID: 818543479
+    locked: 0

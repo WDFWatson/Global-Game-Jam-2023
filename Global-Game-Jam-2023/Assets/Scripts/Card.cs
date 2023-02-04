@@ -1,13 +1,17 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using System.Runtime.CompilerServices;
+using TMPro;
 using UnityEngine;
 
 public class Card : MonoBehaviour
 {
+    public RootData root;
+    [SerializeField] private TextMeshPro cardName, rootDesc, affixDesc;
     private Hand hand;
     private Camera cam;
-    private bool isHeld = false;
+    [SerializeField] private float focusScale = 1.25f;
 
     public Vector2 originalPosition;
     private void Start()
@@ -22,43 +26,59 @@ public class Card : MonoBehaviour
         {
             hand = FindObjectOfType<Hand>();
         }
+
+        if (root != null)
+        {
+            UpdateText();
+        }
     }
-    
 
-    private void OnMouseOver()
+    private void OnMouseDrag()
     {
-        if (Input.GetButton("Fire1"))
-        {
-            isHeld = true;
-            Vector3 mousePos = cam.ScreenToWorldPoint(Input.mousePosition);
-            mousePos.z = 0;
-            transform.position = mousePos;
-        }
-        else if (isHeld)
-        {
-            if (transform.position.y < hand.handTopHeight)
-            {
-                transform.position = originalPosition;
-            }
-            else
-            {
-                Play();
-            }
-            isHeld = false;
-        }
+        Vector3 mousePos = cam.ScreenToWorldPoint(Input.mousePosition);
+        mousePos.z = 0;
+        transform.position = mousePos;
+    }
 
+    private void OnMouseUpAsButton()
+    {
+        if (transform.position.y < hand.handTopHeight)
+        {
+            transform.position = originalPosition;
+        }
+        else
+        {
+            Play();
+        }
+    }
 
+    private void OnMouseEnter()
+    {
+        transform.localScale *= focusScale;
+        Vector3 raisedPosition = originalPosition + Vector2.up *transform.localScale.y/2;
+        transform.position = raisedPosition;
     }
 
     private void OnMouseExit()
     {
-        
+        transform.localScale /= focusScale;
+        transform.position = originalPosition;
     }
 
     public void Play()
     {
+        hand.cards.Remove(this);
         Destroy(gameObject);
+        hand.UpdateHandOrder();
     }
+
+    public void UpdateText()
+    {
+        cardName.text = root.cardName;
+        rootDesc.text = root.rootDescription;
+        affixDesc.text = root.affixDescription;
+    }
+    
     
     
 }
