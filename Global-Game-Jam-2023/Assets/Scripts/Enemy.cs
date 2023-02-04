@@ -1,9 +1,13 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
+using TMPro;
 using UnityEngine;
+using Random = UnityEngine.Random;
 
 public class Enemy : MonoBehaviour, ICharacter
 {
+    public TextMeshProUGUI healthDisplay;
     public Spell spell;
     public List<RootData> deck;
     public List<RootData> hand;
@@ -12,9 +16,16 @@ public class Enemy : MonoBehaviour, ICharacter
     
     public int health;
 
+    private void Start()
+    {
+        health = initialHealth;
+        healthDisplay.text = "Enemy: " + health;
+    }
+
     public void ModifyHealth(int change)
     {
         health += change;
+        healthDisplay.text = "Enemy: " + health;
     }
 
     public void SelectCards()
