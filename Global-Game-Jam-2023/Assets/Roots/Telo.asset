@@ -13,5 +13,19 @@ MonoBehaviour:
   m_Name: Telo
   m_EditorClassIdentifier: 
   cardName: Telo
-  rootDescription: Deals 5 damage
-  affixDescription: Adds 3 damage
+  rootDescriptionAttack: Deal 5 damage.
+  rootEffectAttack:
+  - effectValue: 5
+    effect: {fileID: 11400000, guid: 5eec768c89555b84a877e74c8779dede, type: 2}
+  affixDescriptionAttack: Add 2 damage.
+  affixEffectAttack:
+  - effectValue: 2
+    effect: {fileID: 11400000, guid: 5eec768c89555b84a877e74c8779dede, type: 2}
+  rootDescriptionDefense: Block 5 damage.
+  rootEffectDefense:
+  - effectValue: 5
+    effect: {fileID: 11400000, guid: 3faa5017455b3af4aa031b44a9513af1, type: 2}
+  affixDescriptionDefense: Block 2 damage.
+  affixEffectDefense:
+  - effectValue: 2
+    effect: {fileID: 11400000, guid: 3faa5017455b3af4aa031b44a9513af1, type: 2}
