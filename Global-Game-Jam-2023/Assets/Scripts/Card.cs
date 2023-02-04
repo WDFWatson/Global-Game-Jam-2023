@@ -29,6 +29,7 @@ public class Card : MonoBehaviour
             hand = FindObjectOfType<Hand>();
         }
 
+        displayDefense = TurnManager.i.isDefensePhase;
         if (root != null)
         {
             UpdateText();

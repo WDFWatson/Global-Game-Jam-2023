@@ -5,6 +5,7 @@ using UnityEngine;
 
 public class TurnManager : MonoBehaviour
 {
+    public Enemy enemy;
     public static TurnManager i;
     private void Awake()
     {
@@ -35,8 +36,31 @@ public class TurnManager : MonoBehaviour
         return outcome;
     }
     
-    public void ResolveOutcomes(Outcome attackOutcome, Outcome defenseOutcome)
+    public void ResolveSpells()
     {
+        
+    }
+
+    public void Proceed()
+    {
+        if (isDefensePhase)
+        {
+            ResolveSpells();
+            enemy.spell.ClearSpell();
+        }
+        else
+        {
+            isEnemyTurn = !isEnemyTurn;
+        }
+        isDefensePhase = !isDefensePhase;
+        
+        Debug.Log(isEnemyTurn ? "Enemy" : "Player");
+        Debug.Log(isDefensePhase ? "Defense" : "Attack");
+
+        if (isEnemyTurn)
+        {
+            enemy.SelectCards();
+        }
         
     }
 }
