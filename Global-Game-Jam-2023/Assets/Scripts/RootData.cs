@@ -7,7 +7,15 @@ public class RootData : ScriptableObject
 {
     public string cardName;
 
-    public string rootDescription;
+    public string rootDescriptionAttack;
+    public List<EffectData> rootEffectAttack;
     
-    public string affixDescription;
+    public string affixDescriptionAttack;
+    public List<EffectData> affixEffectAttack;
+    
+    public string rootDescriptionDefense;
+    public List<EffectData> rootEffectDefense;
+    
+    public string affixDescriptionDefense;
+    public List<EffectData> affixEffectDefense;
 }

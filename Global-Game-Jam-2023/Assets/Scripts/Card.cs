@@ -9,9 +9,11 @@ public class Card : MonoBehaviour
 {
     public RootData root;
     [SerializeField] private TextMeshPro cardName, rootDesc, affixDesc;
+    [SerializeField] private TextMeshPro sideIndicator;
     private Hand hand;
     private Camera cam;
     [SerializeField] private float focusScale = 1.25f;
+    public bool displayDefense = false;
 
     public Vector2 originalPosition;
     private void Start()
@@ -61,8 +63,31 @@ public class Card : MonoBehaviour
 
     private void OnMouseExit()
     {
+        if (flippedDisplay)
+        {
+            displayDefense = !displayDefense;
+            flippedDisplay = false;
+            UpdateText();
+        }
         transform.localScale /= focusScale;
         transform.position = originalPosition;
+    }
+
+    private bool flippedDisplay = false;
+    private void OnMouseOver()
+    {
+        if (Input.GetButtonDown("Fire2"))
+        {
+            displayDefense = !displayDefense;
+            flippedDisplay = true;
+            UpdateText();
+        }
+        else if (Input.GetButtonUp("Fire2") && flippedDisplay)
+        {
+            displayDefense = !displayDefense;
+            flippedDisplay = false;
+            UpdateText();
+        }
     }
 
     public void Play()
@@ -74,10 +99,12 @@ public class Card : MonoBehaviour
 
     public void UpdateText()
     {
+        sideIndicator.text = displayDefense ? "D" : "A";
         cardName.text = root.cardName;
-        rootDesc.text = root.rootDescription;
-        affixDesc.text = root.affixDescription;
+        rootDesc.text = (displayDefense) ? root.rootDescriptionDefense : root.rootDescriptionAttack;
+        affixDesc.text = (displayDefense) ? root.affixDescriptionDefense : root.affixDescriptionAttack;
     }
+    
     
     
     

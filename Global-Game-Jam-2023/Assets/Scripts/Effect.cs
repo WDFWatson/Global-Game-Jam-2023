@@ -6,5 +6,5 @@ public abstract class EffectData : ScriptableObject
 {
     public int effectValue;
 
-    public abstract void Effect();
+    public abstract void Effect(Outcome outcome);
 }
