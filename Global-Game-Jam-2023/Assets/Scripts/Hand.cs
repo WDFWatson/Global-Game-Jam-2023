@@ -4,6 +4,8 @@ using UnityEngine;
 
 public class Hand : MonoBehaviour
 {
+    public Card cardPrefab;
+    
     public Spell playerSpell;
     
     public float handTopHeight = -2f;
@@ -30,6 +32,18 @@ public class Hand : MonoBehaviour
         }
     }
 
+    public void AddCards(List<RootData> newRoots)
+    {
+        foreach (var newRoot in newRoots)
+        {
+            var newCard = Instantiate(cardPrefab) as Card;
+            newCard.root = newRoot;
+            cards.Add(newCard);
+            
+        }
+        UpdateHandOrder();
+    }
+
     public void ReturnPlayedCards()
     {
         foreach (Card card  in playedCards)
@@ -40,5 +54,6 @@ public class Hand : MonoBehaviour
         playedCards.Clear();
         UpdateHandOrder();
     }
+    
     
 }

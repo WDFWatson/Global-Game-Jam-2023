@@ -45,13 +45,14 @@ public class Card : MonoBehaviour
 
     private void OnMouseUpAsButton()
     {
-        if (transform.position.y < hand.handTopHeight)
+        if (transform.position.y > hand.handTopHeight && !TurnManager.i.isEnemyTurn)
         {
-            transform.position = originalPosition;
+            Play();
+            
         }
         else
         {
-            Play();
+            transform.position = originalPosition;
         }
     }
 

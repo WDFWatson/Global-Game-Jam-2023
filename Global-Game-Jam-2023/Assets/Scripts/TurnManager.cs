@@ -6,6 +6,9 @@ using UnityEngine;
 
 public class TurnManager : MonoBehaviour
 {
+    public float elementValue = 0.25f;
+    [SerializeField] private GameObject resetSpell, castSpell, proceed;
+    
     public Enemy enemy;
     public Player player;
     public static TurnManager i;
@@ -19,6 +22,7 @@ public class TurnManager : MonoBehaviour
         {
             Destroy(gameObject);
         }
+        proceed.SetActive(false);
     }
 
     public bool isDefensePhase = false;
@@ -61,19 +65,109 @@ public class TurnManager : MonoBehaviour
         Outcome attackOutcome = GenerateOutcome(attackSpell);
         Outcome defenseOutcome = GenerateOutcome(defenseSpell);
 
+        if (attackOutcome.numFire > 0)
+        {
+            if (defenseOutcome.numPlant > 0)
+            {
+                attackOutcome.attackDamage = Mathf.RoundToInt(attackOutcome.attackDamage *
+                                                              (1 + elementValue * (attackOutcome.numFire +
+                                                                  defenseOutcome.numPlant)));
+            }
+            if (defenseOutcome.numWater > 0)
+            {
+                defenseOutcome.defenseValue = Mathf.RoundToInt(defenseOutcome.defenseValue *
+                                                              (1 + elementValue * (attackOutcome.numFire +
+                                                                  defenseOutcome.numWater)));
+            }
+        }
+        if (attackOutcome.numPlant > 0)
+        {
+            if (defenseOutcome.numEarth > 0)
+            {
+                attackOutcome.attackDamage = Mathf.RoundToInt(attackOutcome.attackDamage *
+                                                              (1 + elementValue * (attackOutcome.numPlant +
+                                                                  defenseOutcome.numEarth)));
+            }
+            if (defenseOutcome.numFire > 0)
+            {
+                defenseOutcome.defenseValue = Mathf.RoundToInt(defenseOutcome.defenseValue *
+                                                               (1 + elementValue * (attackOutcome.numPlant +
+                                                                   defenseOutcome.numFire)));
+            }
+        }
+        if (attackOutcome.numEarth > 0)
+        {
+            if (defenseOutcome.numWind > 0)
+            {
+                attackOutcome.attackDamage = Mathf.RoundToInt(attackOutcome.attackDamage *
+                                                              (1 + elementValue * (attackOutcome.numEarth +
+                                                                  defenseOutcome.numWind)));
+            }
+            if (defenseOutcome.numPlant > 0)
+            {
+                defenseOutcome.defenseValue = Mathf.RoundToInt(defenseOutcome.defenseValue *
+                                                               (1 + elementValue * (attackOutcome.numEarth +
+                                                                   defenseOutcome.numPlant)));
+            }
+        }
+        if (attackOutcome.numWind > 0)
+        {
+            if (defenseOutcome.numWater > 0)
+            {
+                attackOutcome.attackDamage = Mathf.RoundToInt(attackOutcome.attackDamage *
+                                                              (1 + elementValue * (attackOutcome.numWind +
+                                                                  defenseOutcome.numWater)));
+            }
+            if (defenseOutcome.numEarth > 0)
+            {
+                defenseOutcome.defenseValue = Mathf.RoundToInt(defenseOutcome.defenseValue *
+                                                               (1 + elementValue * (attackOutcome.numWind +
+                                                                   defenseOutcome.numEarth)));
+            }
+        }
+        if (attackOutcome.numWater> 0)
+        {
+            if (defenseOutcome.numFire > 0)
+            {
+                attackOutcome.attackDamage = Mathf.RoundToInt(attackOutcome.attackDamage *
+                                                              (1 + elementValue * (attackOutcome.numWater +
+                                                                  defenseOutcome.numFire)));
+            }
+            if (defenseOutcome.numWind > 0)
+            {
+                defenseOutcome.defenseValue = Mathf.RoundToInt(defenseOutcome.defenseValue *
+                                                               (1 + elementValue * (attackOutcome.numWater +
+                                                                   defenseOutcome.numWind)));
+            }
+        }
+            
         int damage = attackOutcome.attackDamage - defenseOutcome.defenseValue;
         if (damage < 0)
         {
             damage = 0;
         }
+        
+        
 
         if (isPlayerAttack)
         {
-            enemy.ModifyHealth(-damage);
+            enemy.ModifyHealth(defenseOutcome.casterHealthChange-damage);
+            player.ModifyHealth(attackOutcome.casterHealthChange);
         }
         else
         {
-            player.ModifyHealth(-damage);
+            player.ModifyHealth(defenseOutcome.casterHealthChange-damage);
+            enemy.ModifyHealth(attackOutcome.casterHealthChange);
+        }
+
+        if (player.health <= 0)
+        {
+            PlayerManager.LoadDefeat();
+        }
+
+        if (enemy.health <= 0)
+        {
+            PlayerManager.LoadVictory();
         }
     }
 
@@ -84,6 +178,7 @@ public class TurnManager : MonoBehaviour
             ResolveSpells();
             enemy.spell.ClearSpell();
             player.spell.ClearSpell();
+            player.StartTurn();
         }
         else
         {
@@ -97,9 +192,15 @@ public class TurnManager : MonoBehaviour
         if (isEnemyTurn)
         {
             enemy.SelectCards();
+            resetSpell.SetActive(false);
+            castSpell.SetActive(false);
+            proceed.SetActive(true);
         }
         else
         {
+            resetSpell.SetActive(true);
+            castSpell.SetActive(true);
+            proceed.SetActive(false);
             foreach (Card card in player.hand.cards)
             {
                 card.displayDefense = isDefensePhase;
