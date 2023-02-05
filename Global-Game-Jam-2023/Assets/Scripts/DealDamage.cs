@@ -7,6 +7,6 @@ public class DealDamage : Effect
 {
     public override void DoEffect(Outcome outcome, int effectValue)
     {
-        outcome.attackDamage = effectValue;
+        outcome.attackDamage += effectValue;
     }
 }
