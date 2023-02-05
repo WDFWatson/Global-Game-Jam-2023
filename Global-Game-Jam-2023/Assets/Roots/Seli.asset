@@ -10,14 +10,14 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 521817aaa89407f4bbebbc557b66119d, type: 3}
-  m_Name: Kasi
+  m_Name: Seli
   m_EditorClassIdentifier: 
-  cardName: Kasi
-  rootDescriptionAttack: 
+  cardName: Seli
+  rootDescriptionAttack: 2 Fire. Deal 10 damage.
   rootEffectAttack: []
-  affixDescriptionAttack: 
+  affixDescriptionAttack: +1 Fire. Add 5 damage.
   affixEffectAttack: []
-  rootDescriptionDefense: 
+  rootDescriptionDefense: 2 Fire. Block 3 damage.
   rootEffectDefense: []
-  affixDescriptionDefense: 
+  affixDescriptionDefense: +1 Fire. Block 1 additional damage.
   affixEffectDefense: []

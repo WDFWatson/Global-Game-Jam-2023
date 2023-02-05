@@ -13,19 +13,25 @@ MonoBehaviour:
   m_Name: Telo
   m_EditorClassIdentifier: 
   cardName: Telo
-  rootDescriptionAttack: Deal 5 damage.
+  rootDescriptionAttack: 2 Water. Deal 5 damage.
   rootEffectAttack:
   - effectValue: 5
     effect: {fileID: 11400000, guid: 5eec768c89555b84a877e74c8779dede, type: 2}
-  affixDescriptionAttack: Add 2 damage.
+  - effectValue: 2
+    effect: {fileID: 11400000, guid: d3317431647a29e4694727538fdabebf, type: 2}
+  affixDescriptionAttack: +1 Water. Add 2 damage.
   affixEffectAttack:
   - effectValue: 2
     effect: {fileID: 11400000, guid: 5eec768c89555b84a877e74c8779dede, type: 2}
-  rootDescriptionDefense: Block 5 damage.
+  - effectValue: 1
+    effect: {fileID: 11400000, guid: d3317431647a29e4694727538fdabebf, type: 2}
+  rootDescriptionDefense: 2 Water. Block 5 damage.
   rootEffectDefense:
   - effectValue: 5
     effect: {fileID: 11400000, guid: 3faa5017455b3af4aa031b44a9513af1, type: 2}
-  affixDescriptionDefense: Block 2 damage.
-  affixEffectDefense:
   - effectValue: 2
-    effect: {fileID: 11400000, guid: 3faa5017455b3af4aa031b44a9513af1, type: 2}
+    effect: {fileID: 11400000, guid: d3317431647a29e4694727538fdabebf, type: 2}
+  affixDescriptionDefense: +1 Water. Block 2 additional damage.
+  affixEffectDefense:
+  - effectValue: 1
+    effect: {fileID: 11400000, guid: d3317431647a29e4694727538fdabebf, type: 2}

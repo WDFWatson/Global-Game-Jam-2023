@@ -152,6 +152,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6f344fe5221259d40b18a33e97d3d8dc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  deck:
+  - {fileID: 11400000, guid: d4f7802c0d2f9114d8d1a2f773a44b4c, type: 2}
+  - {fileID: 11400000, guid: d4f7802c0d2f9114d8d1a2f773a44b4c, type: 2}
+  - {fileID: 11400000, guid: d4f7802c0d2f9114d8d1a2f773a44b4c, type: 2}
 --- !u!4 &152428007
 Transform:
   m_ObjectHideFlags: 0
