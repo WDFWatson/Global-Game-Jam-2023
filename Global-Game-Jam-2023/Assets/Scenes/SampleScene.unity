@@ -353,7 +353,7 @@ MonoBehaviour:
   healthDisplay: {fileID: 29373260}
   spell: {fileID: 477045081}
   hand: []
-  initialHealth: 10
+  initialHealth: 100
   health: 100
 --- !u!4 &328554178
 Transform:
@@ -1973,7 +1973,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: -1
+  m_SortingOrder: -10
   m_Sprite: {fileID: 21300000, guid: c87135c5266f0c84394e0ea7c37ecf35, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
