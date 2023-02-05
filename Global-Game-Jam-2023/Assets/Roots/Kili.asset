@@ -12,12 +12,36 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 521817aaa89407f4bbebbc557b66119d, type: 3}
   m_Name: Kili
   m_EditorClassIdentifier: 
-  cardName: 
-  rootDescriptionAttack: 
-  rootEffectAttack: []
-  affixDescriptionAttack: 
-  affixEffectAttack: []
-  rootDescriptionDefense: 
-  rootEffectDefense: []
-  affixDescriptionDefense: 
-  affixEffectDefense: []
+  cardName: Kili
+  rootDescriptionAttack: 1 Plant, 1 Water. Heal 5 health.
+  rootEffectAttack:
+  - effectValue: 5
+    effect: {fileID: 11400000, guid: 6eb5396c855802947ac69ee97957c125, type: 2}
+  - effectValue: 1
+    effect: {fileID: 11400000, guid: c565db42199caa343bb98b8b918b280b, type: 2}
+  - effectValue: 1
+    effect: {fileID: 11400000, guid: d3317431647a29e4694727538fdabebf, type: 2}
+  affixDescriptionAttack: +1 Plant, +1 Water. Heal 2 health.
+  affixEffectAttack:
+  - effectValue: 2
+    effect: {fileID: 11400000, guid: 6eb5396c855802947ac69ee97957c125, type: 2}
+  - effectValue: 1
+    effect: {fileID: 11400000, guid: c565db42199caa343bb98b8b918b280b, type: 2}
+  - effectValue: 1
+    effect: {fileID: 11400000, guid: d3317431647a29e4694727538fdabebf, type: 2}
+  rootDescriptionDefense: 1 Plant, 1 Water. Heal 3 health.
+  rootEffectDefense:
+  - effectValue: 3
+    effect: {fileID: 11400000, guid: 6eb5396c855802947ac69ee97957c125, type: 2}
+  - effectValue: 1
+    effect: {fileID: 11400000, guid: d3317431647a29e4694727538fdabebf, type: 2}
+  - effectValue: 1
+    effect: {fileID: 11400000, guid: c565db42199caa343bb98b8b918b280b, type: 2}
+  affixDescriptionDefense: +1 Plant, +1 Water. Heal 2 health.
+  affixEffectDefense:
+  - effectValue: 2
+    effect: {fileID: 11400000, guid: 6eb5396c855802947ac69ee97957c125, type: 2}
+  - effectValue: 1
+    effect: {fileID: 11400000, guid: d3317431647a29e4694727538fdabebf, type: 2}
+  - effectValue: 1
+    effect: {fileID: 11400000, guid: c565db42199caa343bb98b8b918b280b, type: 2}

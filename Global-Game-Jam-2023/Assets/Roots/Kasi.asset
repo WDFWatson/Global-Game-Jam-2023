@@ -13,11 +13,27 @@ MonoBehaviour:
   m_Name: Kasi
   m_EditorClassIdentifier: 
   cardName: Kasi
-  rootDescriptionAttack: 
-  rootEffectAttack: []
-  affixDescriptionAttack: 
-  affixEffectAttack: []
-  rootDescriptionDefense: 
-  rootEffectDefense: []
-  affixDescriptionDefense: 
-  affixEffectDefense: []
+  rootDescriptionAttack: 2 plant. Deal 3 damage.
+  rootEffectAttack:
+  - effectValue: 3
+    effect: {fileID: 11400000, guid: 5eec768c89555b84a877e74c8779dede, type: 2}
+  - effectValue: 1
+    effect: {fileID: 11400000, guid: c565db42199caa343bb98b8b918b280b, type: 2}
+  affixDescriptionAttack: 1 plant. 2 attack.
+  affixEffectAttack:
+  - effectValue: 1
+    effect: {fileID: 11400000, guid: c565db42199caa343bb98b8b918b280b, type: 2}
+  - effectValue: 2
+    effect: {fileID: 11400000, guid: 5eec768c89555b84a877e74c8779dede, type: 2}
+  rootDescriptionDefense: 2 plant. 10 defence.
+  rootEffectDefense:
+  - effectValue: 10
+    effect: {fileID: 11400000, guid: 3faa5017455b3af4aa031b44a9513af1, type: 2}
+  - effectValue: 1
+    effect: {fileID: 11400000, guid: c565db42199caa343bb98b8b918b280b, type: 2}
+  affixDescriptionDefense: 1 plant. 5 defence.
+  affixEffectDefense:
+  - effectValue: 5
+    effect: {fileID: 11400000, guid: 3faa5017455b3af4aa031b44a9513af1, type: 2}
+  - effectValue: 1
+    effect: {fileID: 11400000, guid: c565db42199caa343bb98b8b918b280b, type: 2}

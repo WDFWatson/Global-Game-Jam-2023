@@ -105,9 +105,12 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   root: {fileID: 0}
+  sprite: {fileID: 453420969103134733}
   cardName: {fileID: 453420970422064415}
   rootDesc: {fileID: 794402678605497308}
   affixDesc: {fileID: 7253789945251142172}
+  rootLabel: {fileID: 967014572728511571}
+  affixLabel: {fileID: 8863871019130054995}
   sideIndicator: {fileID: 1821554207948688854}
   focusScale: 1.5
   displayDefense: 0

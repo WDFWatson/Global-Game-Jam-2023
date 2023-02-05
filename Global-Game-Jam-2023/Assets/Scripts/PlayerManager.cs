@@ -45,12 +45,12 @@ public class PlayerManager : MonoBehaviour
     
     public static void LoadVictory()
     {
-        SceneManager.LoadScene("Scenes/SampleScene");
+        SceneManager.LoadScene("Scenes/Victory");
     }
     
     public static void LoadDefeat()
     {
-        SceneManager.LoadScene("Scenes/SampleScene");
+        SceneManager.LoadScene("Scenes/Defeat");
     }
     
 }

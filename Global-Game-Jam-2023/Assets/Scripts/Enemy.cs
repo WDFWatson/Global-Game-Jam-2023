@@ -33,7 +33,7 @@ public class Enemy : Character
     public void SelectCards()
     {
         hand.AddRange(DrawCards(numCardDraws));
-        int numPlays = Random.Range(1, Math.Max(hand.Count,3));
+        int numPlays = Random.Range(1, Math.Min(hand.Count,3));
         for (int i = 0; i < numPlays; i++)
         {
             int selectionIndex = Random.Range(0, hand.Count-1);

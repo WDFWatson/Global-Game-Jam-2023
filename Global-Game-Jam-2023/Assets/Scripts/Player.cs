@@ -21,8 +21,8 @@ public class Player : Character
 
     private void Start()
     {
-        hand.AddCards(DrawCards(initialHand));
         deck = new List<RootData>(PlayerManager.i.deck);
+        hand.AddCards(DrawCards(initialHand));
         discards = new List<RootData>();
         health = initialHealth;
         healthDisplay.text = "You: " + health;

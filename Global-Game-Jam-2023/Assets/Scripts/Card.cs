@@ -8,7 +8,8 @@ using UnityEngine;
 public class Card : MonoBehaviour
 {
     public RootData root;
-    [SerializeField] private TextMeshPro cardName, rootDesc, affixDesc;
+    [SerializeField] private SpriteRenderer sprite;
+    [SerializeField] private TextMeshPro cardName, rootDesc, affixDesc, rootLabel, affixLabel;
     [SerializeField] private TextMeshPro sideIndicator;
     private Hand hand;
     private Camera cam;
@@ -58,6 +59,7 @@ public class Card : MonoBehaviour
 
     private void OnMouseEnter()
     {
+        SetLayer(true);
         transform.localScale *= focusScale;
         Vector3 raisedPosition = originalPosition + Vector2.up *transform.localScale.y/2;
         transform.position = raisedPosition;
@@ -65,6 +67,7 @@ public class Card : MonoBehaviour
 
     private void OnMouseExit()
     {
+        SetLayer(false);
         if (flippedDisplay)
         {
             displayDefense = !displayDefense;
@@ -108,6 +111,19 @@ public class Card : MonoBehaviour
         cardName.text = root.cardName;
         rootDesc.text = (displayDefense) ? root.rootDescriptionDefense : root.rootDescriptionAttack;
         affixDesc.text = (displayDefense) ? root.affixDescriptionDefense : root.affixDescriptionAttack;
+    }
+
+    public void SetLayer(bool isHeld)
+    {
+        string layer = isHeld ? "Held" : "Hand" ;
+        int layerInt = SortingLayer.NameToID(layer);
+        sprite.sortingLayerID = layerInt;
+        cardName.sortingLayerID = layerInt;
+        sideIndicator.sortingLayerID = layerInt;
+        rootDesc.sortingLayerID = layerInt;
+        rootLabel.sortingLayerID = layerInt;
+        affixDesc.sortingLayerID = layerInt;
+        affixLabel.sortingLayerID = layerInt;
     }
     
     
